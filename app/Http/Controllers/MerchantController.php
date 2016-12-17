@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Merchant;
+use App\Models\Reward;
 use Hash;
 use Request;
 use Response;
