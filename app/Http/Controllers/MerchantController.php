@@ -9,7 +9,26 @@ use Validator;
 
 class MerchantController extends Controller
 {
-	
+
+	public function getListReward()
+	{
+		$merchant         = Request::get('merchant_token');
+		$rewards = Reward::with('merchant_data')
+			->where('merchant_id', $merchant->id)
+			->orderBy('merchant_id', 'DESC')
+			->orderBy('id', 'ASC')->get();
+		$data    = [];
+		$count  = count($rewards);
+		foreach ($rewards as $reward) {
+			$data[] = $reward->getRewardInfo;
+		}
+
+		return Response::json([
+			'success' => true,
+			'total' => $count,
+			'rewards' => $data,
+		]);
+	}
 
 	public function details()
 	{

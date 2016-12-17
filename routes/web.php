@@ -34,6 +34,7 @@ Route::group(['middleware' => 'api.basic'], function (){
     Route::post('merchant/login',['uses'=>'MerchantController@login']);
     Route::group(['prefix'=>'merchant','middleware'=>'merchant.api'],function(){
         Route::get('details',['as'=>'merchant.details','uses'=>'MerchantController@details']);
+	    Route::get('/rewards', 'MerchantController@getListReward');
 	    Route::post('user/info', [
 		    'uses' => 'UserController@getInfoFromCode'
 	    ]);

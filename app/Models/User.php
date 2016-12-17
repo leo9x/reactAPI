@@ -31,8 +31,7 @@ class User extends Authenticatable
 
 	public static function getQrCode($code)
 	{
-		return 'http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&chl='. $code
-		. '&chs=180x180&choe=UTF-8&chld=L|0';
+		return 'http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&chl='.$code.'&chs=180x180&choe=UTF-8&chld=L|0';
 	}
 
 	public static function getCurrentUser($request)
