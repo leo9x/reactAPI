@@ -53,7 +53,7 @@ class MerchantController extends Controller
 
 		$validator = Validator::make($data, $rules);
 		if (!$validator->fails()) {
-			$merchant = Merchant::where('email', $data['email'])->first();
+			$merchant = Merchant::where('email', strtolower($data['email']))->first();
 			if (count($merchant) == 0) {
 				$return            = [];
 				$return['success'] = false;
