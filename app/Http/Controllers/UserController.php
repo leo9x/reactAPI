@@ -156,4 +156,33 @@ class UserController extends ControllerBase
 			]);
 		}
 	}
+
+	public function postAdjustPoint()
+	{
+		$input = Input::all();
+		$rule = [
+			'user_id' => 'required',
+		    'point' => 'numeric|required',
+		];
+		$validator = Validator::make($input, $rule);
+		if (!$validator->fails()) {
+			$user = User::find($input['user_id']);
+			if  ($user == null)
+				return Response::json([
+					'success'=>false,
+				    'message'=>'User not found',
+				]);
+			$user->point = $user->point + $input['point'];
+			$user->save();
+			return Response::json([
+				'success'=>true,
+			    'message' => 'Adjust point successfully',
+			]);
+		} else {
+			return Response::json([
+				'success'=>false,
+			    'message'=> $this->resolveFailMessage($validator->messages()),
+			]);
+		}
+	}
 }
