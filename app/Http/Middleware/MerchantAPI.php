@@ -25,7 +25,7 @@ class MerchantAPI
 			return $next($request);
 		}
 		else
-			return \Response::json(array('success'=>false,'message'=>'Loggin Error'));
+			return \Response::json(array('success'=>false,'message'=>'Login Error'));
 	}
 
 }

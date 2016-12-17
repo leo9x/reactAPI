@@ -24,7 +24,7 @@ class CreatePassbookTable extends Migration
             $table->increments('id');
             $table->char('pass_type_id');
             $table->char('serial_number');
-            $table->char('last_updated_tag');
+            $table->char('last_updated_tag')->nullable();
             $table->timestamps();
         });
         Schema::create('passbook_devices',function(Blueprint $table){
