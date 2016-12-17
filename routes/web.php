@@ -24,4 +24,5 @@ Route::get('/test-git', function () {
 
 Route::group(['middleware' => 'api.basic'], function (){
 	Route::post('user/register', 'UserController@postRegister');
+	Route::post('user/login', 'UserController@postLogin');
 });
