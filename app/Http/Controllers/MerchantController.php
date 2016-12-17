@@ -58,9 +58,13 @@ class MerchantController extends Controller {
                 return Response::json($return,200);
             }
             else {
+                $error = array();
+                foreach($validator->messages()->toArray() as $key=>$value){
+                    $error[] = $value[0];
+                }
                 $return = array();
                 $return['success'] = FALSE;
-                $return['message'] = $validator->messages();
+                $return['message'] = $error;
                 return Response::json($return,200);
             }
 
