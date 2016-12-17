@@ -21,7 +21,7 @@ class MerchantAPI
 		$merchant = Merchant::where('merchant_key',$token)->first();
 
 		if(count($merchant) > 0) {
-			$request->attributes(array('merchant'=>$merchant));
+			$request->attributes->add(['merchant_token' => $merchant]);
 			return $next($request);
 		}
 		else
