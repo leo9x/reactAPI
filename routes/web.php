@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => 'api.basic'], function (){
+	Route::post('user/register', 'UserController@postRegister');
+});
