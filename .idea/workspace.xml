@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7880a1fb-bb52-4c99-a701-0877516a2d33" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Merchant.php" afterPath="$PROJECT_DIR$/app/Models/Merchant.php" />
-    </list>
+    <list default="true" id="7880a1fb-bb52-4c99-a701-0877516a2d33" name="Default" comment="" />
     <ignored path="reactAPI.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -352,12 +350,12 @@
       <option name="presentableId" value="Default" />
       <updated>1481987948246</updated>
       <workItem from="1481987950458" duration="91000" />
-      <workItem from="1481988057312" duration="3670000" />
+      <workItem from="1481988057312" duration="4129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3761000" />
+    <option name="totallyTimeSpent" value="4220000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
