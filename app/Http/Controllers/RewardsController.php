@@ -24,4 +24,21 @@ class RewardsController extends Controller
 			'rewards' => $data,
 		]);
 	}
+
+	public function getRewardByMerchant($id)
+	{
+		$rewards = Reward::with('merchant_data')
+			->where('merchant_id', $id)
+			->orderBy('merchant_id', 'DESC')
+			->orderBy('id', 'ASC')->get();
+		$data    = [];
+		foreach ($rewards as $reward) {
+			$data[] = $reward->getRewardInfo;
+		}
+
+		return Response::json([
+			'success' => true,
+			'rewards' => $data,
+		]);
+	}
 }
