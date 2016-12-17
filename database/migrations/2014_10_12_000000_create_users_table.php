@@ -20,7 +20,11 @@ class CreateUsersTable extends Migration
 	        $table->string('phone')->nullable();
             $table->string('password');
 	        $table->integer('point')->default(0);
+	        $table->string('user_token')->unique();
+	        $table->string('qr_code')->unique();
+	        $table->string('avatar')->default('http://2.pik.vn/201658e4e26c-c66c-4590-bd12-99f80e031eca.png');
             $table->rememberToken();
+	        $table->softDeletes();
             $table->timestamps();
         });
     }
