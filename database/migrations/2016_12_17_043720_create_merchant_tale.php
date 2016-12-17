@@ -13,11 +13,13 @@ class CreateMerchantTale extends Migration
      */
     public function up()
     {
-        Schema::create('merchant', function (Blueprint $table) {
+        Schema::create('merchants', function (Blueprint $table) {
 			$table->increments('id');
 	        $table->string('email')->unique();
 	        $table->string('password');
-	        $table->string('name');
+            $table->string('name');
+            $table->text('logo')->nullable();
+            $table->string('color')->nullable();
 	        $table->float('lat', 30)->default(0);
 	        $table->float('long', 30)->default(0);
         });
