@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 
+use App\Models\Merchant;
+
 class MerchantAPI
 {
 	/**
@@ -14,11 +16,16 @@ class MerchantAPI
 	 */
 	public function handle($request, $next)
 	{
-		$token = env('AUTH_TOKEN', 'NDOWgOhURXwew5UHFI5suSCK');
-		if($request->header('PHP_AUTH_USER') == $token)
+		//$token = env('AUTH_TOKEN', 'NDOWgOhURXwew5UHFI5suSCK');
+		$token = $request->header('PHP_AUTH_PW');
+		$merchant = Merchant::where('merchant_key',$token)->first();
+
+		if(count($merchant) > 0) {
+			$request->attributes->add(['merchant_token' => $merchant]);
 			return $next($request);
+		}
 		else
-			return \Response::json(array('success'=>false,'message'=>'API Pass not valid'));
+			return \Response::json(array('success'=>false,'message'=>'Loggin Error'));
 	}
 
 }
