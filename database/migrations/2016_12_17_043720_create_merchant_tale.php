@@ -18,6 +18,7 @@ class CreateMerchantTale extends Migration
 	        $table->string('email')->unique();
 	        $table->string('password');
             $table->string('name');
+	        $table->text('description')->nullable();
             $table->text('logo')->nullable();
             $table->string('color')->nullable();
             $table->text('merchant_key')->nullable();

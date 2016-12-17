@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Merchant;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Input;
@@ -157,5 +158,21 @@ class UserController extends ControllerBase
 			    'message'=> $this->resolveFailMessage($validator->messages()),
 			]);
 		}
+	}
+
+	public function getListMerchant()
+	{
+		$merchants = Merchant::all();
+		$count = count($merchants);
+		$data = [];
+		foreach ($merchants as $merchant) {
+			$data[] = $merchant->getMerchantInfo();
+		}
+
+		return Response::json([
+			'success'=>true,
+		    'total' => $count,
+			'merchants' => $data,
+		]);
 	}
 }

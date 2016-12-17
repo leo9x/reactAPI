@@ -18,6 +18,7 @@ class Reward extends Model
 	public function getRewardInfo()
 	{
 		$result = new \stdClass();
+		$result->id = $this->id;
 		$result->name = $this->name;
 		$result->logo = env('APP_URL', 'https://api.9box.co') . $this->logo;
 		$result->description = $this->description;
