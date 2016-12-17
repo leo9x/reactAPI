@@ -12,17 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Banana Team';
 });
 
-Route::get('/test-git', function () {
-	echo '<pre>';
-	print_r('GIT-11');
-	echo '</pre>';
-	die;
-});
+
 
 Route::group(['middleware' => 'api.basic'], function (){
 	Route::post('user/register', 'UserController@postRegister');
 	Route::post('user/login', 'UserController@postLogin');
+
+
+	// Leo
+
+    Route::group(['prefix'=>'merchant','middleware'=>'merchant.api'],function(){
+
+    });
+
+	// End Leo
 });
