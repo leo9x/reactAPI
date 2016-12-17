@@ -17,6 +17,7 @@ class Merchant extends Model
 		$r->logo = env('APP_URL', 'https://api.9box.co') . $this->logo;
 		$r->color = $this->color;
 		$r->description = $this->description;
+		$r->short_description = $this->short_description;
 		$r->latitude = $this->latitude;
 		$r->longitude = $this->longitude;
 		$r->background = env('APP_URL', 'https://api.9box.co') . $this->background;
