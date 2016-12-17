@@ -19,6 +19,7 @@ class Merchant extends Model
 		$r->description = $this->description;
 		$r->latitude = $this->latitude;
 		$r->longitude = $this->longitude;
+		$r->background = env('APP_URL', 'https://api.9box.co') . $this->background;
 
 		return $r;
 	}
