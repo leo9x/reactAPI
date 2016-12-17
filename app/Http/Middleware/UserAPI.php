@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Middleware;
-
-
 use App\Models\User;
 
-class MerchantAPI
+class UserAPI
 {
 	/**
 	 * Handle an incoming request.
