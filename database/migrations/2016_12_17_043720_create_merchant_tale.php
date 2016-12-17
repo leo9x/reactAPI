@@ -20,6 +20,7 @@ class CreateMerchantTale extends Migration
             $table->string('name');
             $table->text('logo')->nullable();
             $table->string('color')->nullable();
+            $table->text('merchant_key')->nullable();
 	        $table->float('lat', 30)->default(0);
 	        $table->float('long', 30)->default(0);
         });

@@ -23,7 +23,7 @@ Route::group(['middleware' => 'api.basic'], function (){
 
 	// Leo
 
-    Route::group(['prefix'=>'merchant'],function(){
+    Route::group(['prefix'=>'merchant','middleware'=>'merchant.api'],function(){
 
     });
 
