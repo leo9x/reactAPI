@@ -41,4 +41,20 @@ class RewardsController extends Controller
 			'rewards' => $data,
 		]);
 	}
+
+	public function getDetail($id)
+	{
+		$reward = Reward::find($id);
+		if ($reward == null) {
+			return Response::json([
+				'success'=>false,
+			    'message'=>'Reward not found',
+			]);
+		}
+
+		return Response::json([
+			'success'=>true,
+		    'reward' => $reward->getRewardInfo(),
+		]);
+	}
 }
