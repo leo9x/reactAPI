@@ -22,7 +22,7 @@ class Reward extends Model
 		$result->name = $this->name;
 		$result->logo = env('APP_URL', 'https://api.9box.co') . $this->logo;
 		$result->description = $this->description;
-		$result->point = $this->point;
+		$result->points = $this->points;
 		$result->quantity = $this->quantity;
 		$result->merchant_id = $this->merchant_id;
 		return $result;

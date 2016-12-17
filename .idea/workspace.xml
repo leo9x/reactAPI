@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7880a1fb-bb52-4c99-a701-0877516a2d33" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Merchant.php" afterPath="$PROJECT_DIR$/app/Models/Merchant.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Reward.php" afterPath="$PROJECT_DIR$/app/Models/Reward.php" />
     </list>
     <ignored path="reactAPI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -93,11 +93,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5639445">
+            <state vertical-scroll-proportion="-7.1764708">
               <caret line="189" column="45" selection-start-line="189" selection-start-column="45" selection-end-line="189" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RewardsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RewardsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.125">
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+              <folding>
+                <element signature="e#40#62#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reward.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Models/Reward.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.51035506">
+              <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -120,6 +142,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_12_17_183004_update_merchants_small_description.php" />
         <option value="$PROJECT_DIR$/app/Models/Merchant.php" />
+        <option value="$PROJECT_DIR$/app/Models/Reward.php" />
       </list>
     </option>
   </component>
@@ -570,16 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RewardsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.044378698">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="31" />
-          <folding>
-            <element signature="e#40#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/PassbookDevice.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.25">
@@ -658,8 +671,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5639445">
+        <state vertical-scroll-proportion="-7.1764708">
           <caret line="189" column="45" selection-start-line="189" selection-start-column="45" selection-end-line="189" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RewardsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <element signature="e#40#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Reward.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51035506">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
           <folding />
         </state>
       </provider>
