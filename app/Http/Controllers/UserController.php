@@ -62,16 +62,7 @@ class UserController extends ControllerBase
 			]);
 		return Response::json([
 			'success'=>true,
-		    'user' => [
-			    'name' => $user->name,
-			    'email' => $user->email,
-			    'phone' => $user->phone,
-			    'user_token' => $user->user_token,
-			    'point' => $user->point,
-			    'code' => $user->qr_code,
-			    'qr_code' => User::getQrCode($user->qr_code),
-			    'avatar' => $user->avatar,
-		    ]
+		    'user' => $user->getUserInfo(),
 		]);
 	}
 
@@ -97,17 +88,7 @@ class UserController extends ControllerBase
 				$user = Auth::getUser();
 				return Response::json([
 					'success' => true,
-					'user' => [
-						'id' => $user->id,
-						'name' => $user->name,
-						'email' => $user->email,
-						'phone' => $user->phone,
-						'user_token' => $user->user_token,
-						'point' => $user->point,
-						'code' => $user->qr_code,
-						'qr_code' => User::getQrCode($user->qr_code),
-						'avatar' => $user->avatar,
-					]
+					'user' => User::find($user->id)->getUserInfo(),
 				]);
 			} else {
 				return Response::json([
@@ -133,16 +114,7 @@ class UserController extends ControllerBase
 			if ($user != null) {
 				return Response::json([
 					'success'=>true,
-				    'user' => [
-					    'name' => $user->name,
-					    'email' => $user->email,
-					    'phone' => $user->phone,
-					    'user_token' => $user->user_token,
-					    'point' => $user->point,
-					    'code' => $user->qr_code,
-					    'qr_code' => User::getQrCode($user->qr_code),
-					    'avatar' => $user->avatar,
-				    ]
+				    'user' => $user->getUserInfo(),
 				]);
 			} else {
 				return Response::json([

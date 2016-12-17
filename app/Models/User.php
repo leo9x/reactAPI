@@ -42,4 +42,19 @@ class User extends Authenticatable
 
 		return $user;
 	}
+
+	public function getUserInfo()
+	{
+		return [
+			'id' => $this->id,
+			'name' => $this->name,
+			'email' => $this->email,
+			'phone' => $this->phone,
+			'user_token' => $this->user_token,
+			'point' => $this->point,
+			'code' => $this->qr_code,
+			'qr_code' => User::getQrCode($this->qr_code),
+			'avatar' => $this->avatar,
+		];
+	}
 }

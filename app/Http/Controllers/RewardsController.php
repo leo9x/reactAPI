@@ -2,6 +2,6 @@
 
 namespace App\Http\Controllers;
 
-class RedwardsController extends Controller {
-
+class RewardsController extends Controller {
+	
 }
