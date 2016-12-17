@@ -71,14 +71,7 @@ class MerchantController extends Controller
 
 			$return             = [];
 			$return['success']  = true;
-			$data               = new \stdClass();
-			$data->name         = $merchant->name;
-			$data->logo         = $merchant->logo;
-			$data->color        = trim(preg_replace('/\s\s+/', ' ', $merchant->color));
-			$data->latitude     = $merchant->latitude;
-			$data->longtitude   = $merchant->longtitude;
-			$data->merchant_key = $merchant->merchant_key;
-			$return['data']     = $data;
+			$return['data']     = $merchant->getMerchantInfo();
 
 			return Response::json($return, 200);
 		} else {
