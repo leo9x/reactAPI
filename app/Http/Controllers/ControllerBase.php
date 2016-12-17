@@ -9,5 +9,13 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ControllerBase extends Controller
 {
-    
+    public function resolveFailMessage($messages) {
+	    $msg = $messages->getMessages();
+	    $result = [];
+	    foreach ($msg as $item) {
+		    $result[] = $item[0];
+	    }
+
+	    return $result;
+    }
 }
