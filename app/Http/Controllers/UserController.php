@@ -41,6 +41,8 @@ class UserController extends ControllerBase
 			return Response::json([
 				'success'=>true,
 			    'message'=> 'Register successfully',
+			    'id' => $user->id,
+			    'user_token' => $user->user_token,
 			]);
 		} else {
 			return Response::json([
@@ -49,6 +51,29 @@ class UserController extends ControllerBase
 			]);
 		}
     }
+
+	public function getInfo($id)
+	{
+		$user = User::find($id);
+		if ($user == null)
+			return Response::json([
+				'success'=>false,
+			    'message'=>'User not found',
+			]);
+		return Response::json([
+			'success'=>true,
+		    'user' => [
+			    'name' => $user->name,
+			    'email' => $user->email,
+			    'phone' => $user->phone,
+			    'user_token' => $user->user_token,
+			    'point' => $user->point,
+			    'code' => $user->qr_code,
+			    'qr_code' => User::getQrCode($user->qr_code),
+			    'avatar' => $user->avatar,
+		    ]
+		]);
+	}
 
 	public function postLogin()
 	{

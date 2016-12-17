@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::group(['middleware' => 'api.basic'], function (){
 	Route::post('user/register', 'UserController@postRegister');
 	Route::post('user/login', 'UserController@postLogin');
+	Route::get('user/get-info/{id}', 'UserController@getInfo');
 	Route::post('user/info', [
 		'uses' => 'UserController@getInfoFromCode'
 	]);
