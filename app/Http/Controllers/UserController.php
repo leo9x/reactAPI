@@ -78,6 +78,7 @@ class UserController extends ControllerBase
 						'phone' => $user->phone,
 						'user_token' => $user->user_token,
 						'point' => $user->point,
+						'code' => $user->qr_code,
 						'qr_code' => User::getQrCode($user->qr_code),
 						'avatar' => $user->avatar,
 					]
@@ -92,6 +93,41 @@ class UserController extends ControllerBase
 			return Response::json([
 				'success'=>false,
 			    'message'=> $this->resolveFailMessage($validator->messages()),
+			]);
+		}
+	}
+
+	public function getInfoFromCode(Request $request)
+	{
+		$input = Input::all();
+		$rule = ['code'=>'required'];
+		$validator = Validator::make($input, $rule);
+		if (!$validator->fails()) {
+			$user = User::where('qr_code', $input['code'])->first();
+			if ($user != null) {
+				return Response::json([
+					'success'=>true,
+				    'user' => [
+					    'name' => $user->name,
+					    'email' => $user->email,
+					    'phone' => $user->phone,
+					    'user_token' => $user->user_token,
+					    'point' => $user->point,
+					    'code' => $user->qr_code,
+					    'qr_code' => User::getQrCode($user->qr_code),
+					    'avatar' => $user->avatar,
+				    ]
+				]);
+			} else {
+				return Response::json([
+					'success'=>false,
+				    'message'=>'User not found',
+				]);
+			}
+		} else {
+			return Response::json([
+				'success'=>false,
+				'message'=>$this->resolveFailMessage($validator->messages()),
 			]);
 		}
 	}

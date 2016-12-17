@@ -34,4 +34,12 @@ class User extends Authenticatable
 		return 'http://www.qr-code-generator.com/phpqrcode/getCode.php?cht=qr&chl='. $code
 		. '&chs=180x180&choe=UTF-8&chld=L|0';
 	}
+
+	public static function getCurrentUser($request)
+	{
+		$userToken = $request->header('PHP_AUTH_PW', '');
+		$user = User::where('user_token', $userToken)->first();
+
+		return $user;
+	}
 }
