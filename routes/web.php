@@ -22,6 +22,7 @@ Route::group(['middleware' => 'api.basic'], function (){
 	Route::post('user/login', 'UserController@postLogin');
 	Route::get('user/get-info/{id}', 'UserController@getInfo');
 
+	Route::get('/reward', 'RewardsController@getListReward');
 
 	// Leo
     Route::post('merchant/login',['uses'=>'MerchantController@login']);
