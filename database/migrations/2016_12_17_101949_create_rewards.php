@@ -20,6 +20,7 @@ class CreateRewards extends Migration
             $table->text('logo')->nullable();
             $table->text('description')->nullable();
             $table->bigInteger('points');
+	        $table->integer('quantity')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

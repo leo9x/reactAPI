@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Merchant;
+use App\Models\Reward;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Input;
@@ -62,16 +64,7 @@ class UserController extends ControllerBase
 			]);
 		return Response::json([
 			'success'=>true,
-		    'user' => [
-			    'name' => $user->name,
-			    'email' => $user->email,
-			    'phone' => $user->phone,
-			    'user_token' => $user->user_token,
-			    'point' => $user->point,
-			    'code' => $user->qr_code,
-			    'qr_code' => User::getQrCode($user->qr_code),
-			    'avatar' => $user->avatar,
-		    ]
+		    'user' => $user->getUserInfo(),
 		]);
 	}
 
@@ -97,17 +90,7 @@ class UserController extends ControllerBase
 				$user = Auth::getUser();
 				return Response::json([
 					'success' => true,
-					'user' => [
-						'id' => $user->id,
-						'name' => $user->name,
-						'email' => $user->email,
-						'phone' => $user->phone,
-						'user_token' => $user->user_token,
-						'point' => $user->point,
-						'code' => $user->qr_code,
-						'qr_code' => User::getQrCode($user->qr_code),
-						'avatar' => $user->avatar,
-					]
+					'user' => User::find($user->id)->getUserInfo(),
 				]);
 			} else {
 				return Response::json([
@@ -133,16 +116,7 @@ class UserController extends ControllerBase
 			if ($user != null) {
 				return Response::json([
 					'success'=>true,
-				    'user' => [
-					    'name' => $user->name,
-					    'email' => $user->email,
-					    'phone' => $user->phone,
-					    'user_token' => $user->user_token,
-					    'point' => $user->point,
-					    'code' => $user->qr_code,
-					    'qr_code' => User::getQrCode($user->qr_code),
-					    'avatar' => $user->avatar,
-				    ]
+				    'user' => $user->getUserInfo(),
 				]);
 			} else {
 				return Response::json([
@@ -185,5 +159,59 @@ class UserController extends ControllerBase
 			    'message'=> $this->resolveFailMessage($validator->messages()),
 			]);
 		}
+	}
+
+	public function getListMerchant()
+	{
+		$merchants = Merchant::all();
+		$count = count($merchants);
+		$data = [];
+		foreach ($merchants as $merchant) {
+			$data[] = $merchant->getMerchantInfo();
+		}
+
+		return Response::json([
+			'success'=>true,
+		    'total' => $count,
+			'merchants' => $data,
+		]);
+	}
+
+	public function getMerchantDetail($id)
+	{
+		$merchant = Merchant::find($id);
+		if ($merchant == null)
+			return Response::json([
+				'success'=>false,
+			    'message'=>'Merchant not found',
+			]);
+		return Response::json([
+			'success'=>true,
+		    'merchant' => $merchant->getMerchantInfo(),
+		]);
+	}
+
+	public function getListReward($id)
+	{
+		$merchant = Merchant::find($id);
+		if ($merchant == null)
+			return Response::json([
+				'success'=>false,
+				'message'=>'Merchant not found',
+			]);
+		$rewards = Reward::with('merchant_data')
+			->where('merchant_id', $id)
+			->orderBy('merchant_id', 'DESC')
+			->orderBy('id', 'ASC')->get();
+		$data    = [];
+		foreach ($rewards as $reward) {
+			$data[] = $reward->getRewardInfo();
+		}
+
+		return Response::json([
+			'success' => true,
+			'total' => count($data),
+			'rewards' => $data,
+		]);
 	}
 }
