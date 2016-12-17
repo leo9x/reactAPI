@@ -24,7 +24,7 @@ Route::group(['middleware' => 'api.basic'], function (){
 
 
 	// Leo
-
+    Route::post('merchant/login',['uses'=>'MerchantController@login']);
     Route::group(['prefix'=>'merchant','middleware'=>'merchant.api'],function(){
         Route::get('details',['as'=>'merchant.details','uses'=>'MerchantController@details']);
 	    Route::post('user/info', [
