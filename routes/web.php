@@ -28,6 +28,8 @@ Route::group(['middleware' => 'api.basic'], function (){
 
 	Route::group(['middleware'=>'user.login'],function(){
 		Route::get('/user/merchant', 'UserController@getListMerchant');
+		Route::get('/user/merchant/detail/{id}', 'UserController@getMerchantDetail');
+		Route::get('/user/merchant/reward/{id}', 'UserController@getListReward');
 	});
 
 	// Leo

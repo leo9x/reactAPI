@@ -12,7 +12,7 @@ class Reward extends Model
 
 	public function merchant_data()
 	{
-		$this->belongsTo('App\Models\Merchant', 'merchant_id');
+		return $this->belongsTo('App\Models\Merchant', 'merchant_id');
 	}
 
 	public function getRewardInfo()

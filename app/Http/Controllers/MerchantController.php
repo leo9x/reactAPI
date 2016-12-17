@@ -20,7 +20,7 @@ class MerchantController extends Controller
 		$data    = [];
 		$count  = count($rewards);
 		foreach ($rewards as $reward) {
-			$data[] = $reward->getRewardInfo;
+			$data[] = $reward->getRewardInfo();
 		}
 
 		return Response::json([

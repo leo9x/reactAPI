@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Merchant;
+use App\Models\Reward;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Input;
@@ -173,6 +174,44 @@ class UserController extends ControllerBase
 			'success'=>true,
 		    'total' => $count,
 			'merchants' => $data,
+		]);
+	}
+
+	public function getMerchantDetail($id)
+	{
+		$merchant = Merchant::find($id);
+		if ($merchant == null)
+			return Response::json([
+				'success'=>false,
+			    'message'=>'Merchant not found',
+			]);
+		return Response::json([
+			'success'=>true,
+		    'merchant' => $merchant->getMerchantInfo(),
+		]);
+	}
+
+	public function getListReward($id)
+	{
+		$merchant = Merchant::find($id);
+		if ($merchant == null)
+			return Response::json([
+				'success'=>false,
+				'message'=>'Merchant not found',
+			]);
+		$rewards = Reward::with('merchant_data')
+			->where('merchant_id', $id)
+			->orderBy('merchant_id', 'DESC')
+			->orderBy('id', 'ASC')->get();
+		$data    = [];
+		foreach ($rewards as $reward) {
+			$data[] = $reward->getRewardInfo();
+		}
+
+		return Response::json([
+			'success' => true,
+			'total' => count($data),
+			'rewards' => $data,
 		]);
 	}
 }

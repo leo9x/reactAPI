@@ -16,7 +16,7 @@ class RewardsController extends Controller
 			->orderBy('id', 'ASC')->get();
 		$data    = [];
 		foreach ($rewards as $reward) {
-			$data[] = $reward->getRewardInfo;
+			$data[] = $reward->getRewardInfo();
 		}
 
 		return Response::json([
@@ -33,11 +33,12 @@ class RewardsController extends Controller
 			->orderBy('id', 'ASC')->get();
 		$data    = [];
 		foreach ($rewards as $reward) {
-			$data[] = $reward->getRewardInfo;
+			$data[] = $reward->getRewardInfo();
 		}
 
 		return Response::json([
 			'success' => true,
+			'total'=>count($data),
 			'rewards' => $data,
 		]);
 	}
