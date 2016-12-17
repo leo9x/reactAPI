@@ -21,14 +21,15 @@ Route::group(['middleware' => 'api.basic'], function (){
 	Route::post('user/register', 'UserController@postRegister');
 	Route::post('user/login', 'UserController@postLogin');
 	Route::get('user/get-info/{id}', 'UserController@getInfo');
-	Route::post('user/info', [
-		'uses' => 'UserController@getInfoFromCode'
-	]);
+
 
 	// Leo
     Route::post('merchant/login',['uses'=>'MerchantController@login']);
     Route::group(['prefix'=>'merchant','middleware'=>'merchant.api'],function(){
         Route::get('details',['as'=>'merchant.details','uses'=>'MerchantController@details']);
+	    Route::post('user/info', [
+		    'uses' => 'UserController@getInfoFromCode'
+	    ]);
     });
 
 	// End Leo
