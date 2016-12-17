@@ -19,6 +19,11 @@ class Reward extends Model
 	{
 		$result = new \stdClass();
 		$result->name = $this->name;
-		$result->logo = $this->logo;
+		$result->logo = env('APP_URL', 'https://api.9box.co') . $this->logo;
+		$result->description = $this->description;
+		$result->point = $this->point;
+		$result->quantity = $this->quantity;
+		$result->merchant_id = $this->merchant_id;
+		return $result;
 	}
 }
