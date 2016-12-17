@@ -30,6 +30,7 @@ Route::group(['middleware' => 'api.basic'], function (){
 	    Route::post('user/info', [
 		    'uses' => 'UserController@getInfoFromCode'
 	    ]);
+	    Route::post('user/adjust-point', 'UserController@postAdjustPoint');
     });
 
 	// End Leo
