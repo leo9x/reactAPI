@@ -8,7 +8,7 @@ class Passbook extends Model {
 
     public function passbookDevices()
     {
-        return $this->belongsToMany('PassbookDevice', 'passbook_registrations', 'passbook_id', 'passbook_device_id')
+        return $this->belongsToMany('App\Models\PassbookDevice', 'passbook_registrations', 'passbook_id', 'passbook_device_id')
             ->withTimestamps();
     }
 }
