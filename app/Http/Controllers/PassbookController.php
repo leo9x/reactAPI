@@ -94,8 +94,8 @@ class PassbookController extends Controller {
 
     public function test($id_or_code){
         $pkpass = Passbook::getPkpassData($id_or_code, 1, true);
-        print_r($pkpass);
-        die;
+        return Response($pkpass,200);
+        
         return new Response($pkpass, 200, [
             'Content-Transfer-Encoding' => 'binary',
             'Content-Description' => 'File Transfer',
