@@ -32,10 +32,11 @@ Route::group(['middleware' => 'api.basic'], function (){
     Route::post('merchant/login',['uses'=>'MerchantController@login']);
     Route::group(['prefix'=>'merchant','middleware'=>'merchant.api'],function(){
         Route::get('details',['as'=>'merchant.details','uses'=>'MerchantController@details']);
-	    Route::get('/rewards', 'MerchantController@getListReward');
+	    Route::get('/rewards/{user_id?}', 'MerchantController@getListReward');
 	    Route::post('user/info', [
 		    'uses' => 'UserController@getInfoFromCode'
 	    ]);
+	    Route::post('redeem', 'MerchantController@postRedeem');
 	    Route::post('user/adjust-point', 'UserController@postAdjustPoint');
     });
 
