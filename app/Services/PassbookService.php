@@ -83,7 +83,7 @@ class PassbookService
 
         $apnsHost = 'gateway.push.apple.com';
         $apnsPort = 2195;
-        $apnsCert = Storage::get('app/config/passbook/certificates.pem');
+        $apnsCert = storage_path('app/config/passbook/certificates.pem');
         $payload = ['aps' => []];
         $payload = json_encode($payload);
 
