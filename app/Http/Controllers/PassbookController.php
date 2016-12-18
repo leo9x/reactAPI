@@ -94,8 +94,16 @@ class PassbookController extends Controller {
 
     public function test($id_or_code){
         $pkpass = Passbook::getPkpassData($id_or_code, 1, true);
-        return Response($pkpass,200);
-        
+        return Response($pkpass,200,[
+            'Content-Transfer-Encoding' => 'binary',
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => 'attachment; filename="pass.pkpass"',
+            'Content-length' => strlen($pkpass),
+            'Content-Type' => PassGenerator::getPassMimeType(),
+            'Pragma' => 'no-cache',
+            'Last-Modified' => gmdate('D, d M Y H:i:s T')
+        ]);
+
         return new Response($pkpass, 200, [
             'Content-Transfer-Encoding' => 'binary',
             'Content-Description' => 'File Transfer',
