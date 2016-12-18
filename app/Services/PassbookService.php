@@ -18,7 +18,7 @@ class PassbookService
     public function pushNotificationsByUser(User $user, $report = false)
     {
         if ($report) {
-            Logger::logPassbook('Attempt to push by user', ['user_id' => $user->getKey()]);
+//            Logger::logPassbook('Attempt to push by user', ['user_id' => $user->getKey()]);
         }
 
         $qr_code = $user->userQrCodes()->first();

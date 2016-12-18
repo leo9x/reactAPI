@@ -132,7 +132,7 @@ class PassbookController extends Controller {
 
     public function logPassbookError($version)
     {
-        Logger::logError(1, "Passbook Error", []);
+//        Logger::logError(1, "Passbook Error", []);
         return Response::json([], 200);
     }
 
