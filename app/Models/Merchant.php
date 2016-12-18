@@ -8,7 +8,7 @@ class Merchant extends Model
 {
     use SoftDeletes;
 
-	public function getMerchantInfo()
+	public function getMerchantInfo($login = false)
 	{
 		$r = new \stdClass();
 		$r->id = $this->id;
@@ -21,6 +21,9 @@ class Merchant extends Model
 		$r->latitude = $this->latitude;
 		$r->longitude = $this->longitude;
 		$r->background = env('APP_URL', 'https://api.9box.co') . $this->background;
+		if($login){
+			$r->merchant_key = $this->merchant_key;
+		}
 
 		return $r;
 	}

@@ -72,7 +72,7 @@ class MerchantController extends Controller
 
 			$return             = [];
 			$return['success']  = true;
-			$return['data']     = $merchant->getMerchantInfo();
+			$return['data']     = $merchant->getMerchantInfo(true);
 
 			return Response::json($return, 200);
 		} else {
