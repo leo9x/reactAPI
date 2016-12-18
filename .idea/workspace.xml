@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7880a1fb-bb52-4c99-a701-0877516a2d33" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Passbook.php" afterPath="$PROJECT_DIR$/app/Models/Passbook.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PassbookController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PassbookController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <ignored path="reactAPI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625">
-              <caret line="1" column="57" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.15532544">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PassbookController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PassbookController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PassbookController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5639445">
-              <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+            <state vertical-scroll-proportion="-2.1764705">
+              <caret line="94" column="35" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="35" />
               <folding>
                 <element signature="e#40#70#0#PHP" expanded="true" />
               </folding>
@@ -93,11 +95,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="standard_1.php" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.708333">
+              <caret line="973" column="9" selection-start-line="973" selection-start-column="9" selection-end-line="973" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Passbook.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Passbook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="93" column="10" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
+            <state vertical-scroll-proportion="-20.625">
+              <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
               <folding>
                 <element signature="e#30#69#0#PHP" expanded="true" />
               </folding>
@@ -142,13 +154,13 @@
         <option value="$PROJECT_DIR$/app/Models/Merchant.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MerchantController.php" />
         <option value="$PROJECT_DIR$/app/Services/PassbookService.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/config/filesystems.php" />
-        <option value="$PROJECT_DIR$/app/Models/Passbook.php" />
         <option value="$PROJECT_DIR$/app/Library/PassGenerator.php" />
+        <option value="$PROJECT_DIR$/app/Models/Passbook.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PassbookController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -547,7 +559,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="SearchEverywhereHistoryKey" value="web.php&#9;FILE&#9;file:///Applications/MAMP/htdocs/reactAPI/routes/web.php&#10;Mer&#9;FILE&#9;file:///Applications/MAMP/htdocs/reactAPI/app/Http/Controllers/MerchantController.php&#10;UserC&#9;null&#9;null&#10;routes/web&#9;FILE&#9;file:///Applications/MAMP/htdocs/reactAPI/routes/web.php&#10;Mercha&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="w&#9;FILE&#9;file:///Applications/MAMP/htdocs/reactAPI/routes/web.php&#10;web.php&#9;FILE&#9;file:///Applications/MAMP/htdocs/reactAPI/routes/web.php&#10;Mer&#9;FILE&#9;file:///Applications/MAMP/htdocs/reactAPI/app/Http/Controllers/MerchantController.php&#10;UserC&#9;null&#9;null&#10;routes/web&#9;FILE&#9;file:///Applications/MAMP/htdocs/reactAPI/routes/web.php&#10;Mercha&#9;null&#9;null" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
@@ -650,16 +662,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PassbookController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="39" />
-          <folding>
-            <element signature="e#40#70#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MerchantController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -977,16 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Passbook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="10" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
-          <folding>
-            <element signature="e#30#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/passgenerator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.875">
@@ -1005,14 +997,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="1" column="57" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1021,13 +1005,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.708333">
+          <caret line="973" column="9" selection-start-line="973" selection-start-column="9" selection-end-line="973" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Passbook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.625">
+          <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
+          <folding>
+            <element signature="e#30#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PassbookController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5639445">
-          <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+        <state vertical-scroll-proportion="-2.1764705">
+          <caret line="94" column="35" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="35" />
           <folding>
             <element signature="e#40#70#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15532544">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -13,9 +13,8 @@ class Passbook extends Model {
             ->withTimestamps();
     }
 
-    public static function getPkpassData($user_id_or_hash, $merchant_id = 1, $is_qr_code = false)
+    public static function getPkpassData($user_id_or_hash, $merchant_id)
     {
-//        $user = User::get($user_id_or_hash, 0, $business_id, ['is_qr_code' => $is_qr_code]);
         $user = User::getUserByCode($user_id_or_hash);
 
         $merchant = Merchant::find($merchant_id)->toArray();
@@ -29,7 +28,9 @@ class Passbook extends Model {
         $friendly_expiry_date = (!empty($user['member_tiers']) && !empty($user['member_tiers'][0]['pivot'])) ? $user['member_tiers'][0]['pivot']['friendly_expiry_date'] : '';
         $data['friendly_expiry_date'] = $friendly_expiry_date;
 
-        $hash = $user["qr_code"];
+
+        $hash = $user["qr_code"] . '-' . $merchant_id;
+        $identify = $hash . '-' . $merchant_id;
 
         $merchant_name = $merchant['name'];
         $merchant_color = $merchant['color'];
@@ -42,7 +43,7 @@ class Passbook extends Model {
             "formatVersion"     => 1,
             "organizationName"  => $merchant_name,
             "passTypeIdentifier"=> "pass.com.igift",
-            "serialNumber"      => $hash,
+            "serialNumber"      => $identify,
             "teamIdentifier"    => "L93FTHRFUZ",
             "foregroundColor"   => "#ffffff",
             "backgroundColor"   => $merchant_color,

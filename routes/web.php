@@ -5,6 +5,7 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'passbook'], function () {
+	Route::get('get-merchant-pass/{user_id}/{merchant_id}', ['uses' => 'PassbookController@getMerchantPass']);
 	Route::post('{version}/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{serialNumber}', ['uses' => 'PassbookController@register']);
 	Route::get('{version}/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}', ['uses' => 'PassbookController@listSerialNumbers']);
 	Route::get('{version}/passes/{passTypeIdentifier}/{serialNumber}', ['uses' => 'PassbookController@getPassData']);
