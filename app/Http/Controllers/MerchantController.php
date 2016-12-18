@@ -3,12 +3,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Merchant;
 use App\Models\Reward;
+use App\Models\UserReward;
 use Hash;
+use Illuminate\Foundation\Auth\User;
+use Input;
 use Request;
 use Response;
 use Validator;
 
-class MerchantController extends Controller
+class MerchantController extends ControllerBase
 {
 
 	public function getListReward($user_id = null)
@@ -90,6 +93,57 @@ class MerchantController extends Controller
 			return Response::json($return, 200);
 		}
 
+	}
+
+	public function postRedeem()
+	{
+		$input = Input::all();
+		$rule = [
+			'reward_id' => 'required',
+		    'user_id' => 'required',
+		];
+		$validator = Validator::make($input, $rule);
+		if (!$validator->fails()) {
+			$reward = Reward::find($input['reward_id']);
+			if ($reward == null) {
+				return Response::json([
+					'success'=>false,
+				    'message'=>'Reward not found',
+				]);
+			}
+			if ($reward->quantity <= 0) {
+				return Response::json([
+					'success'=>false,
+					'message'=>'Reward not found',
+				]);
+			}
+			$check = UserReward::where('reward_id', $reward->id)
+				->where('user_id', $input['user_id'])->first();
+			if ($check != null)
+				return Response::json([
+					'success'=>false,
+					'message'=>'User already redeem this reward',
+				]);
+
+			$userReward = new UserReward();
+			$userReward->user_id = $input['user_id'];
+			$userReward->reward_id = $input['reward_id'];
+			$userReward->merchant_id = $reward->merchant_id;
+			$userReward->save();
+
+			// Call queue push notify to user app
+
+			return Response::json([
+				'success'=>true,
+			    'message'=>'Redeem successfully',
+			]);
+
+		} else {
+			return Response::json([
+				'success'=>false,
+			    'message'=>$this->resolveFailMessage($validator->messages()),
+			]);
+		}
 	}
 }
 

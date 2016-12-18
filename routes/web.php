@@ -38,6 +38,7 @@ Route::group(['middleware' => 'api.basic'], function (){
 	    Route::post('user/info', [
 		    'uses' => 'UserController@getInfoFromCode'
 	    ]);
+	    Route::post('redeem', 'MerchantController@postRedeem');
 	    Route::post('user/adjust-point', 'UserController@postAdjustPoint');
     });
 
