@@ -8,6 +8,7 @@ use DB;
 use Logger;
 use NotFoundException;
 use Page;
+use Storage;
 use User;
 
 class PassbookService
@@ -82,7 +83,7 @@ class PassbookService
 
         $apnsHost = 'gateway.push.apple.com';
         $apnsPort = 2195;
-        $apnsCert = base_path('app/config/passbook/certificates.pem');
+        $apnsCert = Storage::get('app/config/passbook/certificates.pem');
         $payload = ['aps' => []];
         $payload = json_encode($payload);
 
