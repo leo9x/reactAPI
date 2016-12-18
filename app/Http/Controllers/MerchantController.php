@@ -11,7 +11,7 @@ use Validator;
 class MerchantController extends Controller
 {
 
-	public function getListReward()
+	public function getListReward($user_id = null)
 	{
 		$merchant         = Request::get('merchant_token');
 		$rewards = Reward::with('merchant_data')
@@ -21,7 +21,10 @@ class MerchantController extends Controller
 		$data    = [];
 		$count  = count($rewards);
 		foreach ($rewards as $reward) {
-			$data[] = $reward->getRewardInfo();
+			if ($user_id == null)
+				$data[] = $reward->getRewardInfo();
+			else
+				$data[] = $reward->getUserRewardInfo($user_id);
 		}
 
 		return Response::json([
