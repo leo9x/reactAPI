@@ -1,7 +1,5 @@
 <?php
-Route::get('/test',function(){
-	echo storage_path('app/config/passbook/certificates.pem');
-});
+Route::get('/test/{id}',['uses'=>'PassbookController@test']);
 Route::get('/', function () {
     return 'Banana Team';
 });

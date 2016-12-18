@@ -61,6 +61,11 @@ return [
             'region' => 'your-region',
             'bucket' => 'your-bucket',
         ],
+        'passgenerator'=> [
+            'driver'=>'local',
+            'root'=>storage_path('app')
+
+        ]
 
     ],
 

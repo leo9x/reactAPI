@@ -42,6 +42,13 @@ class User extends Authenticatable
 		return $user;
 	}
 
+	public static function getUserByCode($id_or_code){
+		$user = Self::where('qr_code',$id_or_code)->first();
+		if ($user == null)
+			$user = Self::where('id',$id_or_code)->first();
+		return $user->toArray();
+	}
+
 	public function getUserInfo()
 	{
 		return [

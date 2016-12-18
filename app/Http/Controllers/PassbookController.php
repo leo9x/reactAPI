@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Library\PassGenerator;
 use App\Models\Passbook;
 use App\Models\PassbookDevice;
 use App\Services\PassbookService;
@@ -91,10 +92,40 @@ class PassbookController extends Controller {
         return Response::json($rs, 200);
     }
 
+    public function test($id_or_code){
+        $pkpass = Passbook::getPkpassData($id_or_code, 1, true);
+        return new Response($pkpass, 200, [
+            'Content-Transfer-Encoding' => 'binary',
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => 'attachment; filename="pass.pkpass"',
+            'Content-length' => strlen($pkpass),
+            'Content-Type' => PassGenerator::getPassMimeType(),
+            'Pragma' => 'no-cache',
+            'Last-Modified' => gmdate('D, d M Y H:i:s T')
+        ]);
+    }
+
     public function getPassData($version, $passTypeIdentifier, $serialNumber)
     {
-        return Response::json([], 200);
+        Passbook::getPassData($version, $passTypeIdentifier, $serialNumber);
+        $business = Session::get('business');
+        $pkpass = Passbook::getPkpassData($serialNumber, $business['id'], true);
+
+        return new Response($pkpass, 200, [
+            'Content-Transfer-Encoding' => 'binary',
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => 'attachment; filename="pass.pkpass"',
+            'Content-length' => strlen($pkpass),
+            'Content-Type' => PassGenerator::getPassMimeType(),
+            'Pragma' => 'no-cache',
+            'Last-Modified' => gmdate('D, d M Y H:i:s T')
+        ]);
     }
+
+//    public function getPassData($version, $passTypeIdentifier, $serialNumber)
+//    {
+//        return Response::json([], 200);
+//    }
 
     public function logPassbookError($version)
     {
@@ -126,8 +157,6 @@ class PassbookController extends Controller {
                 $passbook->passbookDevices()->detach($passbook_device->getKey());
             }
         }
-
-
     }
 
 }
