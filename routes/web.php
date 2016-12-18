@@ -6,11 +6,11 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'passbook'], function () {
 	Route::post('{version}/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{serialNumber}', ['uses' => 'PassbookController@register']);
-	Route::get('{version}/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}', ['uses' => 'Igift\V3\PassbookController@listSerialNumbers']);
-	Route::get('{version}/passes/{passTypeIdentifier}/{serialNumber}', ['uses' => 'Igift\V3\PassbookController@getPassData']);
-	Route::post('{version}/log', ['uses' => 'Igift\V3\PassbookController@logPassbookError']);
-	Route::post('push-notification', ['uses' => 'Igift\V3\PassbookController@pushNotification']);
-	Route::delete('{version}/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{serialNumber}', ['uses' => 'Igift\V3\PassbookController@unRegister']);
+	Route::get('{version}/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}', ['uses' => 'PassbookController@listSerialNumbers']);
+	Route::get('{version}/passes/{passTypeIdentifier}/{serialNumber}', ['uses' => 'PassbookController@getPassData']);
+	Route::post('{version}/log', ['uses' => 'PassbookController@logPassbookError']);
+	Route::post('push-notification', ['uses' => 'PassbookController@pushNotification']);
+	Route::delete('{version}/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{serialNumber}', ['uses' => 'PassbookController@unRegister']);
 });
 
 Route::group(['middleware' => 'api.basic'], function (){
