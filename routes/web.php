@@ -1,5 +1,7 @@
 <?php
-
+Route::get('/test',function(){
+	return Storage::get('app/config/passbook/certificates.pem');
+});
 Route::get('/', function () {
     return 'Banana Team';
 });
