@@ -5,7 +5,7 @@ use App\Models\Merchant;
 use App\Models\Reward;
 use App\Models\UserReward;
 use Hash;
-use Illuminate\Foundation\Auth\User;
+use App\Models\User;
 use Input;
 use Request;
 use Response;
@@ -117,19 +117,39 @@ class MerchantController extends ControllerBase
 					'message'=>'Reward not found',
 				]);
 			}
-			$check = UserReward::where('reward_id', $reward->id)
-				->where('user_id', $input['user_id'])->first();
-			if ($check != null)
+//			$check = UserReward::where('reward_id', $reward->id)
+//				->where('user_id', $input['user_id'])->first();
+//			if ($check != null)
+//				return Response::json([
+//					'success'=>false,
+//					'message'=>'User already redeem this reward',
+//				]);
+
+			$user = User::find($input['user_id']);
+			if ($user == null)
 				return Response::json([
 					'success'=>false,
-					'message'=>'User already redeem this reward',
+					'message'=>'User not found',
 				]);
+
+			if ($user->point < $reward->points)
+				return Response::json([
+					'success'=>false,
+					'message'=>'You don\'t enough point to redeem this reward',
+				]);
+
 
 			$userReward = new UserReward();
 			$userReward->user_id = $input['user_id'];
 			$userReward->reward_id = $input['reward_id'];
 			$userReward->merchant_id = $reward->merchant_id;
 			$userReward->save();
+
+			$reward->quantity--;
+			$reward->save();
+
+			$user->point -= $reward->points;
+			$user->save();
 
 			// Call queue push notify to user app
 
